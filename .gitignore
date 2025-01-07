@@ -1,0 +1,15 @@
+# Ignore specific files
+config.py
+commands.txt
+bot_data.json
+
+# Ignore VSCode-related files
+.VSCodeCounter/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore all __pycache__ directories recursively
+src/**/__pycache__/
+

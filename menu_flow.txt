@@ -1,0 +1,113 @@
+Finalized Menu Flow
+/eventadmin (Only accessible in personal chat and for authorized event admins)
+
+Message: "Please select an option."
+Buttons:
+
+[New Event]
+[My Events]
+[Event Info (No Event Selected)] (This might be disabled unless an event is selected. Alternatively, we can omit this at the top level.)
+[Close]
+New Event Flow:
+
+Name
+"What is the name of the event?"
+
+[Cancel new event]
+If name exists:
+"An event with that name already exists. Please choose a different name."
+→ Ask again.
+
+Start time?
+"Does the event have a start date/time?"
+
+[Yes] → "Please enter: HH:MM DD/MM/YY"
+[No] → Skip start
+End time?
+"Does the event have an end date/time?"
+
+[Yes] → "Please enter: HH:MM DD/MM/YY"
+[No] → Skip end
+Capacity?
+"Does the event have a limited capacity?"
+
+[Yes] → Ask for capacity (integer)
+[No]
+Confirm Event
+Show summary: Name, Start, End, Capacity
+Buttons: [Save Event], [Edit Event], [Discard Event], [<< Back]
+
+If Edit:
+
+[Name], [Start], [End], [Capacity], [<< Back]
+If Discard: Confirm with Yes/No.
+
+If Save: "Event saved." → Goes to that event’s menu.
+
+My Events:
+List events by creation date:
+
+[Event 1]
+[Event 2]
+...
+[<< Back]
+Event Menu (Selected Event):
+Show event details (Name, Start, End, Capacity, Announcement status, etc.):
+
+Buttons vary by event state:
+
+[Event Info] → Shows all details:
+Name, Start, End, Capacity, Announcement text (if any), posted status, number RSVPed, number Waitlisted, RSVP message template, Waitlist message template.
+
+If no announcement: [Add Announcement], [RSVP Message], If capacity: [Waitlist Message]
+
+If announcement created but not posted: [Preview Announcement], [Post Announcement], [RSVP Message], If capacity: [Waitlist Message]
+
+If announcement posted: [View Attendees], [Message Attendees], [Edit Announcement], [RSVP Message], If capacity: [Waitlist Message]
+
+Always: [Edit Event], [Discard Event], [<< Back to My Events], [Back to Main Menu]
+
+Add/Preview Announcement:
+
+Ask for announcement text.
+If capacity: "Show spots remaining?" [Yes/No]
+If no capacity: "Show number attending?" [Yes/No]
+Preview announcement:
+Show the text, spots/attending info, italicized "In order to RSVP..." line, and [RSVP] button in preview.
+[Post Announcement], [Save], [Edit], [Discard]
+If Post: Confirm posting.
+After posting, store message_id for editing later.
+Edit Announcement (After posting):
+
+Similar flow: allow changing text and display options, then update the posted message in the channel.
+RSVP Message & Waitlist Message:
+Show current template.
+"Do you want to change it?" [Yes/No]
+If yes: ask for new text. Update all sent messages accordingly.
+
+View Attendees:
+List:
+Attendees:
+
+@User1
+@User2
+Waitlist (if any):
+@User3
+[<< Back]
+
+Message Attendees:
+"Who do you want to message?"
+
+[Attendees]
+[Waitlist]
+[Both Attendees & Waitlist] (optional)
+[<< Back]
+Ask for text.
+Send message.
+Show how many received it.
+
+Invalid Input:
+If input invalid (e.g., date format wrong), "Invalid input. Please try again." and re-ask.
+
+Back/Close Options:
+At each submenu, [<< Back] or [Back to Main Menu] or [Back to Event List] are provided as needed.
